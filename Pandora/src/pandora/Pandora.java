@@ -20,6 +20,8 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
+
+
 /**
  *
  * @author dominikmocher
@@ -40,9 +42,33 @@ public class Pandora extends JApplet {
             public void run() {
                 try {
                     UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-                } catch (Exception e) {
+                } 
+                catch (Exception e) {
+                  System.out.println("Error happened...");
                 }
                 
+                //Setting a Main JFrame to display the RulesEditor Panel
+                //TEMPORARY CODE
+                JFrame main = new JFrame();
+                main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                main.setSize(800,600);
+
+                
+                Rules rules = new Rules();
+                RulesEditor mainframe = new RulesEditor();
+                
+                //TODO: fill list
+                for(int i = 0; i < 5; i++){
+                //mainframe.jList1.addElement("Testdata " + i);
+                }
+                
+                //methods to display the RulesEditor Panel
+                //TEMPORARY CODE
+                main.add(mainframe);
+                main.setVisible(true);
+                main.pack();
+                
+                /*
                 JFrame frame = new JFrame("JavaFX 2 in Swing");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 
@@ -50,12 +76,16 @@ public class Pandora extends JApplet {
                 applet.init();
                 
                 frame.setContentPane(applet.getContentPane());
-                
                 frame.pack();
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 
                 applet.start();
+                
+                Rules rules = new Rules();
+                RulesEditor rules_editor = new RulesEditor();
+                
+                */
             }
         });
     }
@@ -78,13 +108,18 @@ public class Pandora extends JApplet {
     private void createScene() {
         Button btn = new Button();
         btn.setText("Say 'Hello World'");
+        
         btn.setOnAction(new EventHandler<ActionEvent>() {
-            
+        
+
+                
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("Hello World!");
             }
         });
+        
+        
         StackPane root = new StackPane();
         root.getChildren().add(btn);
         fxContainer.setScene(new Scene(root));
