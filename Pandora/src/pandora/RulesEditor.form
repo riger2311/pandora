@@ -112,6 +112,7 @@
                 <StringItem index="4" value="Item 5"/>
               </StringArray>
             </Property>
+            <Property name="selectionMode" type="int" value="0"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -161,6 +162,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ContactObjectListActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="ContactActionBox">
       <Properties>
@@ -178,6 +182,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Apply"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ApplyRulesActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

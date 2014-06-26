@@ -23,6 +23,7 @@ public class Rules {
       {
           this.rolling = value;
       }
+      
       Boolean getRolling()
       {
           return this.rolling;

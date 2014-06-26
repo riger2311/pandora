@@ -57,11 +57,7 @@ public class Pandora extends JApplet {
                 Rules rules = new Rules();
                 RulesEditor mainframe = new RulesEditor();
                 
-                //TODO: fill list
-                for(int i = 0; i < 5; i++){
-                //mainframe.jList1.addElement("Testdata " + i);
-                }
-                
+                              
                 //methods to display the RulesEditor Panel
                 //TEMPORARY CODE
                 main.add(mainframe);

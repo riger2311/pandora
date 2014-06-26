@@ -6,17 +6,52 @@
 
 package pandora;
 
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author dominikmocher
  */
 public class RulesEditor extends javax.swing.JPanel {
 
+    Boolean rolling;
+    String collisionObject;
+    int collisionAction;
+    
     /**
      * Creates new form RulesEditor
      */
     public RulesEditor() {
         initComponents();
+        this.rolling = false;
+        
+        jList1.removeAll();
+        DefaultListModel list = new DefaultListModel(); //stores information into jList
+        
+        for(int i = 0; i < 5; i++)
+        {
+            list.addElement("Spielstein " + i);
+        }
+
+        jList1.setModel(list); //fills data into jList
+        
+        //initialize ContactComboBox
+        ContactObjectList.removeAllItems();
+        //ComboBoxModel comboList = new ComboBoxModel(list.toArray());
+        //ContactObjectList.setModel(comboList);
+        for(int i = 0; i < list.getSize(); i++)
+        {
+          ContactObjectList.addItem(list.toArray()[i]);
+        }
+        
+        ContactActionBox.removeAllItems();
+        String possible_actions[] = {"schlagen", "ignorieren", "überspringen", "nicht ziehen"};
+        for(int i = 0; i < possible_actions.length; i++)
+        {
+          ContactActionBox.addItem(possible_actions[i]);
+        }
+        
     }
 
     /**
@@ -48,6 +83,7 @@ public class RulesEditor extends javax.swing.JPanel {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jList1);
 
         RadioButtonRoll.setText("Bewegung mittels Würfeln");
@@ -76,10 +112,20 @@ public class RulesEditor extends javax.swing.JPanel {
         jLabel1.setText("Bei Kontakt mit");
 
         ContactObjectList.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ContactObjectList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContactObjectListActionPerformed(evt);
+            }
+        });
 
         ContactActionBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         ApplyRules.setText("Apply");
+        ApplyRules.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ApplyRulesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -143,19 +189,43 @@ public class RulesEditor extends javax.swing.JPanel {
         // TODO add your handling code here:
         System.out.println("Moving should be rolling...");
         //TODO: fix method
-        //rules.setRolling(true); //set moving method to "Rolling"
+        //this.rolling = true; //set moving method to "Rolling", unnecessary -dm
     }//GEN-LAST:event_RadioButtonRollActionPerformed
 
     private void RadioButtonMoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButtonMoveActionPerformed
         // TODO add your handling code here
         System.out.println("Moving should be moving by fixed value...");
         //TODO: fix method
-        //rules.setRolling(false);
+        //this.rolling = false; //unnecessary -dm
     }//GEN-LAST:event_RadioButtonMoveActionPerformed
 
     private void TextMoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextMoveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TextMoveActionPerformed
+
+    private void ApplyRulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApplyRulesActionPerformed
+
+        if(RadioButtonRoll.isSelected())
+        {
+            System.out.println("Rolling State: " + this.rolling);
+            this.rolling = true;
+        }
+        
+        if(RadioButtonMove.isSelected())
+        {
+            System.out.println("Rolling State: " + this.rolling);
+            this.rolling = false;
+        }
+        
+        //collisionObject = ContactObjectList.getSelectedItem();
+        
+        
+        
+    }//GEN-LAST:event_ApplyRulesActionPerformed
+
+    private void ContactObjectListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactObjectListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContactObjectListActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
