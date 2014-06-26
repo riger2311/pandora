@@ -6,8 +6,8 @@
 
 package pandora;
 
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JDialog;
 
 /**
  *
@@ -17,6 +17,7 @@ public class RulesEditor extends javax.swing.JPanel {
 
     Boolean rolling;
     String collisionObject;
+    String ownObject;
     int collisionAction;
     
     /**
@@ -74,6 +75,7 @@ public class RulesEditor extends javax.swing.JPanel {
         ContactObjectList = new javax.swing.JComboBox();
         ContactActionBox = new javax.swing.JComboBox();
         ApplyRules = new javax.swing.JButton();
+        testingbutton = new javax.swing.JButton();
 
         buttonGroup1.add(RadioButtonRoll);
         buttonGroup1.add(RadioButtonMove);
@@ -127,6 +129,13 @@ public class RulesEditor extends javax.swing.JPanel {
             }
         });
 
+        testingbutton.setText("testing");
+        testingbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                testingbuttonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -155,6 +164,8 @@ public class RulesEditor extends javax.swing.JPanel {
                         .addComponent(ContactActionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(testingbutton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ApplyRules)))
                 .addContainerGap())
         );
@@ -177,7 +188,9 @@ public class RulesEditor extends javax.swing.JPanel {
                             .addComponent(ContactObjectList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ContactActionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
-                        .addComponent(ApplyRules))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ApplyRules)
+                            .addComponent(testingbutton)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1)))
@@ -217,7 +230,13 @@ public class RulesEditor extends javax.swing.JPanel {
             this.rolling = false;
         }
         
-        //collisionObject = ContactObjectList.getSelectedItem();
+        //getting parameters
+        ownObject = jList1.getSelectedValue().toString();
+        collisionObject = ContactObjectList.getSelectedItem().toString();
+        collisionAction = ContactActionBox.getSelectedIndex();
+        //debug output -dm
+        System.out.println("object " + ownObject + " performs action " + 
+                collisionAction + " on object " + collisionObject);
         
         
         
@@ -226,6 +245,13 @@ public class RulesEditor extends javax.swing.JPanel {
     private void ContactObjectListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactObjectListActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ContactObjectListActionPerformed
+
+    private void testingbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testingbuttonActionPerformed
+        // button to go to dialog
+        
+        JDialog Wizard = new Wizard(null, true);
+        Wizard.setVisible(true);
+    }//GEN-LAST:event_testingbuttonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -240,5 +266,6 @@ public class RulesEditor extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton testingbutton;
     // End of variables declaration//GEN-END:variables
 }
