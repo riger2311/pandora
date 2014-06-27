@@ -6,6 +6,8 @@
 
 package pandora;
 
+import java.util.Arrays;
+
 /**
  *
  * @author projexter
@@ -19,6 +21,15 @@ public class Wizard extends javax.swing.JDialog {
             int height_;
             int dizes_;
             int dizes_count_;
+            
+    public
+            String giveName;
+            String givePlayers;
+            String giveWidth;
+            String giveHeight;
+            String giveDizes;
+            String giveDizesCount;
+            
     /**
      * Creates new form Wizard
      */
@@ -255,8 +266,16 @@ public class Wizard extends javax.swing.JDialog {
         error_label.setText("Höhe zu groß: Diese Höhe geht voll nicht");
         return;
     }
-        
+    
             // TODO add your handling code here:
+    
+        giveName = Arrays.toString(game_name_);
+        givePlayers = "" + number_of_players_;
+        giveWidth = "" + width_;
+        giveHeight = "" + height_;
+        giveDizes = "" + dizes_;
+        giveDizesCount = "" + dizes_count_;
+    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void t_dizesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_dizesActionPerformed
