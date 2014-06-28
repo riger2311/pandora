@@ -49,20 +49,26 @@ public class Pandora extends JApplet {
                 
                 //Setting a Main JFrame to display the RulesEditor Panel
                 //TEMPORARY CODE
-                JFrame main = new JFrame();
-                main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                Mainframe main = new Mainframe();
                 main.setSize(800,600);
 
                 
                 Rules rules = new Rules();
-                RulesEditor mainframe = new RulesEditor();
+                RulesEditor rulesPanel = new RulesEditor();
                 
-                              
+                main.getjTabbedPane1().add("Regeln", rulesPanel);
+                main.validate();
+                
+//main.setMapEditor(mapPanel);
+                //main.
+                //main.setRulesEditor(rulesPanel);
+                  
                 //methods to display the RulesEditor Panel
                 //TEMPORARY CODE
-                main.add(mainframe);
+                //main.add(mainframe);
                 main.setVisible(true);
-                main.pack();
+                //implement validate
+                //main.pack(); // delete because of validate
                 
                 /*
                 JFrame frame = new JFrame("JavaFX 2 in Swing");

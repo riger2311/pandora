@@ -6,6 +6,8 @@
 
 package pandora;
 
+import java.util.Arrays;
+
 /**
  *
  * @author projexter
@@ -265,14 +267,13 @@ public class Wizard extends javax.swing.JDialog {
         return;
     }
     
-        // TODO add your handling code here:
-   
+
         giveName = Arrays.toString(game_name_);
         givePlayers = "" + number_of_players_;
         giveWidth = "" + width_;
         giveHeight = "" + height_;
         giveDizes = "" + dizes_;
-        giveDizesCount = "" + dizes_count_; 
+        giveDizesCount = "" + dizes_count_;
     
     }//GEN-LAST:event_jButton1ActionPerformed
 
