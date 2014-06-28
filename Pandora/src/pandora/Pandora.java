@@ -35,6 +35,9 @@ public class Pandora extends JApplet {
                 catch (Exception e) {
                   System.out.println("Error happened...");
                 }
+                //creates the startdialog and the wizard
+                Wizard newWizard = new Wizard(null, true);
+                StartDialog start = new StartDialog(null, true, newWizard);
                 
                 //Setting a Main JFrame to display the RulesEditor Panel
                 //TEMPORARY CODE
