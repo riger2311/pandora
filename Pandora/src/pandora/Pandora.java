@@ -48,6 +48,8 @@ public class Pandora extends JApplet {
                 main.getjTabbedPane1().add("Regeln", rulesPanel);
                 main.validate();
                 
+                System.out.println("New Main...");
+                
 //main.setMapEditor(mapPanel);
                 //main.
                 //main.setRulesEditor(rulesPanel);
