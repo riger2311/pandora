@@ -6,7 +6,11 @@
 
 package pandora;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+
 import javax.swing.JApplet;
+import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
@@ -17,6 +21,7 @@ import javax.swing.UIManager;
  * @author dominikmocher
  */
 public class Pandora extends JApplet {
+    
 
     /**
      * @param args the command line arguments
@@ -53,6 +58,8 @@ public class Pandora extends JApplet {
                 //TEMPORARY CODE
                 //main.add(mainframe);
                 main.setVisible(true);
+                //implement validate
+                //main.pack(); // delete because of validate
                 
                 /*
                 JFrame frame = new JFrame("JavaFX 2 in Swing");
@@ -75,5 +82,4 @@ public class Pandora extends JApplet {
             }
         });
     }
-    
 }
