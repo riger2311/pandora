@@ -267,7 +267,8 @@ public class Wizard extends javax.swing.JDialog {
         return;
     }
     
-
+            // TODO add your handling code here:
+    
         giveName = Arrays.toString(game_name_);
         givePlayers = "" + number_of_players_;
         giveWidth = "" + width_;
